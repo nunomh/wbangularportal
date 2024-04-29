@@ -15,7 +15,7 @@ export class HomepageComponent {
   ngOnInit(){this.startPage()}
 
   async startPage(){
-    let resp = await this._apiConnect.getItems('https://wbapi.onrender.com/api');
+    let resp = await this._apiConnect.getItems('/api/test');
     console.log(resp)
   }
 
