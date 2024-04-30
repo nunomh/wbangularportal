@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ApiConnectionService } from '../../services/api-connection.service';
+import { environment } from '../../../environments/environment.development';
 
 @Component({
   selector: 'app-homepage',
@@ -8,15 +9,20 @@ import { ApiConnectionService } from '../../services/api-connection.service';
 })
 export class HomepageComponent {
 
-  constructor(private _apiConnect: ApiConnectionService){
-
+  testEnv: string | undefined;
+  
+  constructor(private _apiConnect: ApiConnectionService) {
+    
   }
 
-  ngOnInit(){this.startPage()}
+  ngOnInit() { this.startPage() }
 
-  async startPage(){
+  async startPage() {
+    this.testEnv = environment.test;
     let resp = await this._apiConnect.getItems('https://wbapi.onrender.com/api/test');
     console.log(resp)
+
+
   }
 
 }
