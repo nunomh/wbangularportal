@@ -1,3 +1,4 @@
 export const environment = {
-    test: '1'
+    API_SERVER_URL: 'https://wbapi.onrender.com',
+    ENVIRONMENT: 'PROD'
 };

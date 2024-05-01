@@ -9,8 +9,6 @@ import { environment } from '../../../environments/environment.development';
 })
 export class HomepageComponent {
 
-  testEnv: string | undefined;
-  
   constructor(private _apiConnect: ApiConnectionService) {
     
   }
@@ -18,10 +16,9 @@ export class HomepageComponent {
   ngOnInit() { this.startPage() }
 
   async startPage() {
-    this.testEnv = environment.test;
-    let resp = await this._apiConnect.getItems('https://wbapi.onrender.com/api/test');
+    let resp = await this._apiConnect.getItems( environment.API_SERVER_URL + '/api/test');
     console.log(resp)
-
+ 
 
   }
 
