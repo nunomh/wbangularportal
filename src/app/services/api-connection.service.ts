@@ -1,5 +1,8 @@
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from '../../environments/environment.development';
+import { Test } from '../interfaces/test';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -24,5 +27,9 @@ export class ApiConnectionService {
       response = err;
     });
     return response;
+  }
+
+  getApiTest(): Observable<Test>{
+    return this.http.get<Test>(`${environment.API_SERVER_URL}/api/test`);
   }
 }
